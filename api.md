@@ -41,7 +41,7 @@ After you have signed up to become an Invoice Check user you will receive the ro
     },
     "identifier": "string",
     "value": 0,
-    "currency": "string",
+    "currency-code": "string",
     "issue-date": "string",
     "due-date": "string"
     }
@@ -52,15 +52,24 @@ After you have signed up to become an Invoice Check user you will receive the ro
     | Field                 | Data Type | Data Qualifications                     |
     |-----------------------+-----------+-----------------------------------------|
     | creditor-identifier   | String    | Maximum string length of 100 characters |
-    | creditor-country-code | String    | Maximum string lenght of 50 characters  |
-    | debtor-identifier     | String    | Maximum string lenght of 100 characters |
-    | debtor-country-code   | String    | Maximum string length of 50 characters  |
+    | creditor-country-code | String    | Two character ISO 3166 country code     |
+    | debtor-identifier     | String    | Maximum string length of 100 characters |
+    | debtor-country-code   | String    | Two character ISO 3166 country code     |
     | invoice-identifier    | String    | Maximum string length of 100 characters |
     | value                 | Number    | Numeric float                           |
-    | currency              | String    | Three character currency code           |
+    | currency-code         | String    | Three character ISO 4217 currency code  |
     | issue-date            | String    | Date in yyyy-mm-dd format               |
     | due-date              | String    | Date in yyyy-mm-dd format               |
     |-----------------------+-----------+-----------------------------------------|
+
+#### Valid Country Codes
+
+- [country-codes](country-codes)
+
+#### Valid Currency Codes
+
+- [currency-codes](currency-codes)
+
 
 ## Success Response
 
@@ -69,7 +78,7 @@ After you have signed up to become an Invoice Check user you will receive the ro
 1.  Body
 
         {
-            "id": "065012ba-8e10-5539-8233-029499ddd93f",
+            "id": "041fa23b-6691-541f-be22-61b18171d2c2",
             "stamped": false
         }
 
@@ -104,16 +113,16 @@ Returned when the submitted \`access\_token\\\` value is not valid.
 Returned if any of the data fields do not confirm to the \`Data Qualifications\` specified above in the \`Data Parameter Description\` table.
 
      {
-         "errors": [
-            "The creditor identifier field is limited to 100 characters",
-            "The creditor country-code field is limited to 50 characters",
-            "The debtor identifier field is limited to 100 characters",
-            "The debtor country-code field is limited to 50 characters",
-            "The identifier field is limited to 100 characters",
-            "Currency code is limited to 3 characters and must be a valid currency code",
-            "Required date format for the issue-date is yyyy-mm-dd",
-            "Required date format for the due-date is yyyy-mm-dd"
-         ]
+     "errors": [
+        "The creditor identifier field is limited to 100 characters",
+        "The creditor country code must be a two character ISO 3166 country code",
+        "The debtor identifier field is limited to 100 characters",
+        "The debtor country code must be a two character ISO 3166 country code",
+        "The identifier field is limited to 100 characters",
+        "The currency code value must be a three character ISO 4217 currency code",
+        "Required date format for the issue-date is yyyy-mm-dd",
+        "Required date format for the due-date is yyyy-mm-dd"
+        ]
     }
 
 ## Sample Call
@@ -129,10 +138,10 @@ Returned if any of the data fields do not confirm to the \`Data Qualifications\`
     }, \ 
     "identifier": "string", \ 
     "value": 0, \ 
-    "currency": "string", \ 
+    "currency-code": "string", \ 
     "issue-date": "string", \ 
     "due-date": "string" \ 
-    }' 'http://34.222.4.16:3000/invoices?access_token=ACCESSTOKEN'
+    }' 'http://invoicecheck.app/invoices?access_token=ACCESS_TOKEN'
 
 ### Response
 
@@ -176,7 +185,7 @@ Returned if any of the data fields do not confirm to the \`Data Qualifications\`
 ### Body
 
     {
-        "id": "052ad0fa-a7b3-528b-a909-02ec4f72dbc1",
+        "id": "041fa23b-6691-541f-be22-61b18171d2c2",
         "stamped": true
     }
 
@@ -213,7 +222,7 @@ Returned if the invoice id is invalid or if the requested Invoice has already be
 ## Sample Call
 
     curl -X PUT --header 'Content-Type: application/json' --header 'Accept: application/json' \
-    'http://localhost:3000/invoices/041fa23b-6691-541f-be22-61b18171d2c2/stamp?access_token=BRADTOKEN'
+    'http://invoicecheck.app/invoices/041fa23b-6691-541f-be22-61b18171d2c2/stamp?access_token=ACCESS_TOKEN'
 
 ### Response
 
