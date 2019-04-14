@@ -64,11 +64,11 @@ After you have signed up to become an Invoice Check user you will receive the ro
 
 #### Valid Country Codes
 
-- [country-codes](country-codes)
+- [country-codes](country-codes.md)
 
 #### Valid Currency Codes
 
-- [currency-codes](currency-codes)
+- [currency-codes](currency-codes.md)
 
 
 ## Success Response
