@@ -7,4 +7,4 @@ Invoice Check API is a system which allows users to submit Invoices for stamped 
 
 ## API Documentation
 
-The documentation for the API is available at [rest-api.md](rest-api.md)
+The documentation for the API is available at [api.md](api.md)
