@@ -1,11 +1,12 @@
 # Check Invoice
-Check if an invoice is in the system
+Check if an invoice is in the system. Pass the ID of the invoice returned from a succesful submit.
+
 
 ## URL
 
-    /invoice/check/ID
+    /api/invoices/:id
 
-    Pass the ID of the invoice returned from a succesful submit
+
     
 ## Method
 

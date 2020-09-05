@@ -1,14 +1,16 @@
 # Stamp Invoice
 
-Stamp an existing invoice as funded
+Stamp an existing invoice as funded. Pass the ID of the invoice returned from a succesful submit.
 
 ## URL
 
-    /invoice/stamp/ID
+    /api/invoices/:id
+
+
     
 ## Method
 
-    PUT
+    PATCH
 
 ## Query Params
 
@@ -20,7 +22,9 @@ Stamp an existing invoice as funded
 
 ## Data Params
 
-    None
+    {
+        "stamped": true
+    }
 
 ## Responses
 ### 200 (OK)
