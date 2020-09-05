@@ -1,10 +1,10 @@
 # Submit Invoice
 
-Add a new invoice to the system
+Add a new invoice to the system.
 
 ## URL
 
-    /invoice
+    /api/invoices
 
 ## Method
 
@@ -93,6 +93,9 @@ Add a new invoice to the system
                     "Error in the debtor identifier field",
                     "Required date format for the issue-date is yyyy-mm-dd",
                     "The currency code value must be a three character ISO 4217 currency code"
+                    "The identifier field must have a value"
+                    "The identifier field is limited to 100 characters"
+
                 ]
         }
 
